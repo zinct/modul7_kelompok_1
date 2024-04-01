@@ -13,6 +13,11 @@ internal class Program
 
         var tes = new TeamMembers1302220067();
         tes.ReadJSON();
+
+        Console.WriteLine();
+
+        var tes2 = new GlossaryItem1302220067();
+        tes2.ReadJSON();
     }
 }
 
@@ -81,5 +86,71 @@ public class TeamMembers1302220067
         {
             Console.WriteLine("{0} {1}-{2}", members.members[i].nim, members.members[i].firstName, members.members[i].lastName);
         }
+    }
+}
+
+public class GlossaryItem1302220067
+{
+    public class Data
+    {
+        public Glossary glossary;
+
+        public class Glossary
+        {
+            public String title;
+            public GlossDiv GlossDiv;
+        }
+
+        public class GlossDiv
+        {
+            public String title;
+            public GlossList GlossList;
+        }
+
+        public class GlossList
+        {
+            public GlossEntry GlossEntry;
+        }
+
+        public class GlossEntry
+        {
+            public String ID;
+            public String SortAS;
+            public String GlossTerm;
+            public String Acronym;
+            public String Abbrev;
+            public GlossDef GlossDef;
+            public String GlossSee;
+        }
+
+        public class GlossDef
+        {
+            public String para;
+            public String[] GlossSeeAlso;
+        }
+
+    }
+    public void ReadJSON()
+    {
+        string json = File.ReadAllText("../../../jurnal7_3_1302220067.json");
+        var data = JsonSerializer.Deserialize<Data>(json, new JsonSerializerOptions { IncludeFields = true });
+
+        Console.WriteLine("Title: " + data.glossary.title);
+        Console.WriteLine("GlossDiv Title: " + data.glossary.GlossDiv.title);
+        Console.WriteLine("GlossDiv Entry ID: " + data.glossary.GlossDiv.GlossList.GlossEntry.ID);
+        Console.WriteLine("GlossDiv Entry Sort As: " + data.glossary.GlossDiv.GlossList.GlossEntry.SortAS);
+        Console.WriteLine("GlossDiv Entry Gloss Term: " + data.glossary.GlossDiv.GlossList.GlossEntry.GlossTerm);
+        Console.WriteLine("GlossDiv Entry Acronym: " + data.glossary.GlossDiv.GlossList.GlossEntry.Acronym);
+        Console.WriteLine("GlossDiv Entry Abbrev: " + data.glossary.GlossDiv.GlossList.GlossEntry.Abbrev);
+        Console.WriteLine("GlossDiv Entry GlossDef: " + data.glossary.GlossDiv.GlossList.GlossEntry.GlossDef);
+        Console.WriteLine("GlossDiv Entry GlossSee: " + data.glossary.GlossDiv.GlossList.GlossEntry.GlossSee);
+
+
+        Console.WriteLine("Para: " + data.glossary.GlossDiv.GlossList.GlossEntry.GlossDef.para);
+        foreach(String see in data.glossary.GlossDiv.GlossList.GlossEntry.GlossDef.GlossSeeAlso)
+        {
+            Console.WriteLine("See Also: " + see);
+        }
+        
     }
 }
