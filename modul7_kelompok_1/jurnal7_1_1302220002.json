@@ -1,0 +1,15 @@
+{
+   "firstName": "Fionadhilla",
+   "lastName": "Gustriani",
+   "gender": "Femamale",
+   "age": 18,
+   "address": {
+       "streetAddress": "Cikoneng",
+       "city": "Bandung",
+       "state": "West Java"
+   },
+   "courses": [
+       { "code": "CRI2C4", "name": "Konstruksi Perangkat Lunak" },
+       { "code": "CRI2EF", "name": "Pmenrograman Berorientasi Objek" }
+   ]
+}
