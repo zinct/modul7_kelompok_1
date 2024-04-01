@@ -1,0 +1,39 @@
+{
+  "members": [
+    {
+      "firstName": "Indra",
+      "lastName": "Mahesa",
+      "gender": "male",
+      "age": 20,
+      "nim": "1302220067"
+    },
+    {
+      "firstName": "Febry",
+      "lastName": "Twenido",
+      "gender": "male",
+      "age": 20,
+      "nim": "1302220084"
+    },
+    {
+      "firstName": "Fionadhilla",
+      "lastName": "Gustriani",
+      "gender": "female",
+      "age": 20,
+      "nim": "130222002"
+    },
+    {
+      "firstName": "Henri",
+      "lastName": "Silas",
+      "gender": "female",
+      "age": 20,
+      "nim": "1302220087"
+    },
+    {
+      "firstName": "Asy-Syifa",
+      "lastName": "Ekhar Nanda",
+      "gender": "female",
+      "age": 20,
+      "nim": "1302223029"
+    }
+  ]
+}
