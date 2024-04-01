@@ -1,0 +1,26 @@
+{
+    "members": [
+        {
+            "firstName": "Indra",
+            "lastName": "Mahesa",
+            "gender": "male",
+            "age": 21,
+            "nim": "13022200xx"
+        },
+        {
+            "firstName": "Henri Silas",
+            "lastName": "Samban",
+            "gender": "male",
+            "age": 69,
+            "nim": "130222xxxx"
+        },
+        {
+            "firstName": "Asyifa Ekhar Nandar",
+            "lastName": "Kautsar",
+            "gender": "female",
+            "age": 20,
+            "nim": "130222xxxx"
+        }
+
+    ]
+}

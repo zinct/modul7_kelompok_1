@@ -6,5 +6,8 @@ internal class Program
     {
         DataMahasiswa1302220084 t1 = new DataMahasiswa1302220084();
         t1.readJSON();
+
+        TeamMembers1302220084 t2 = new TeamMembers1302220084();
+        t2.readJSON();
     }
 }
