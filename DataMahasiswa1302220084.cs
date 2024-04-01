@@ -37,7 +37,7 @@ namespace modul7_kelompok_1
             var dataJson = File.ReadAllText("../../../jurnal7_1_1302220084.json");
 
             var data = JsonSerializer.Deserialize<Mahasiswa>(dataJson, new JsonSerializerOptions { IncludeFields = true });
-        
+
             Console.WriteLine(data.firstName);
             Console.WriteLine(data.lastName);
             Console.WriteLine(data.gender);
