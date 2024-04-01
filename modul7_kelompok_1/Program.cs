@@ -1,8 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Text.Json;
+using static DataMahasiswa1302220002;
 
 Console.WriteLine("Hello, World!");
-var A = new DataMahasiswa1302220002();
+//var A = new DataMahasiswa1302220002();
+var A = new TeamMembers1302220002();
 A.ReadJSON();
 
 class DataMahasiswa1302220002
@@ -38,8 +40,38 @@ class DataMahasiswa1302220002
         Console.WriteLine("mengambil mata kuliah: ");
         for (int i = 0; i < mahasiswa.courses.Length; i++)
         {
-            Console.WriteLine($"matakualiah {i+1} {mahasiswa.courses[i].code} - {mahasiswa.courses[i].name}");
-        } 
+            Console.WriteLine($"matakualiah {i + 1} {mahasiswa.courses[i].code} - {mahasiswa.courses[i].name}");
+        }
+    }
+
+}
+
+class TeamMembers1302220002
+{
+
+    public class TeamMmember
+    { 
+        public Member[] members { get; set; }
+    }
+
+    public class Member
+    {
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string gender { get; set; }
+        public int age { get; set; }
+        public string nim { get; set; }
+    }
+
+    public void ReadJSON()
+    {
+        String json = File.ReadAllText("../../../jurnal7_2_1302220002.json");
+        var teamMember = JsonSerializer.Deserialize<TeamMmember>(json);
+        Console.WriteLine("Team Member List: ");
+        for(int i = 0;i < teamMember.members.Length; i++)
+        {
+            Console.WriteLine($"{teamMember.members[i].nim} {teamMember.members[i].firstName} {teamMember.members[i].lastName} ({teamMember.members[i].age} {teamMember.members[i].gender})");
+        }
     }
 
 }
