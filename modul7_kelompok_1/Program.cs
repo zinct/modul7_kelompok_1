@@ -1,10 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Text.Json;
 using static DataMahasiswa1302220002;
+using static TeamMembers1302220002;
 
 Console.WriteLine("Hello, World!");
 //var A = new DataMahasiswa1302220002();
-var A = new TeamMembers1302220002();
+//var A = new TeamMembers1302220002();
+var A = new GlossaryItem1302220002();
 A.ReadJSON();
 
 class DataMahasiswa1302220002
@@ -50,7 +52,7 @@ class TeamMembers1302220002
 {
 
     public class TeamMmember
-    { 
+    {
         public Member[] members { get; set; }
     }
 
@@ -68,10 +70,62 @@ class TeamMembers1302220002
         String json = File.ReadAllText("../../../jurnal7_2_1302220002.json");
         var teamMember = JsonSerializer.Deserialize<TeamMmember>(json);
         Console.WriteLine("Team Member List: ");
-        for(int i = 0;i < teamMember.members.Length; i++)
+        for (int i = 0; i < teamMember.members.Length; i++)
         {
             Console.WriteLine($"{teamMember.members[i].nim} {teamMember.members[i].firstName} {teamMember.members[i].lastName} ({teamMember.members[i].age} {teamMember.members[i].gender})");
         }
     }
 
+}
+
+class GlossaryItem1302220002
+{
+
+    public class Glosss
+    {
+        public Glossary glossary { get; set; }
+    }
+
+    public class Glossary
+    {
+        public string title { get; set; }
+        public Glossdiv GlossDiv { get; set; }
+    }
+
+    public class Glossdiv
+    {
+        public string title { get; set; }
+        public Glosslist GlossList { get; set; }
+    }
+
+    public class Glosslist
+    {
+        public Glossentry GlossEntry { get; set; }
+    }
+
+    public class Glossentry
+    {
+        public string ID { get; set; }
+        public string SortAs { get; set; }
+        public string GlossTerm { get; set; }
+        public string Acronym { get; set; }
+        public string Abbrev { get; set; }
+        public Glossdef GlossDef { get; set; }
+        public string GlossSee { get; set; }
+    }
+
+    public class Glossdef
+    {
+        public string para { get; set; }
+        public string[] GlossSeeAlso { get; set; }
+    }
+
+    public void ReadJSON()
+    {
+        String json = File.ReadAllText("../../../jurnal7_3_1302220002.json");
+        var gloss = JsonSerializer.Deserialize<Glosss>(json);
+        Console.WriteLine($"{gloss.glossary.GlossDiv.GlossList.GlossEntry.ID}, {gloss.glossary.GlossDiv.GlossList.GlossEntry.SortAs}, {gloss.glossary.GlossDiv.GlossList.GlossEntry.GlossTerm}");
+        Console.WriteLine($"{gloss.glossary.GlossDiv.GlossList.GlossEntry.Acronym}, {gloss.glossary.GlossDiv.GlossList.GlossEntry.Abbrev}, {gloss.glossary.GlossDiv.GlossList.GlossEntry.GlossDef}");
+        Console.WriteLine($"{gloss.glossary.GlossDiv.GlossList.GlossEntry.GlossSee}");
+    }
 }
